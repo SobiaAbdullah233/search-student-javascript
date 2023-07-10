@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            background-color: black;
+            color: white;
+        }
+        .outputs {
+            background: #9c27b08c;
+            padding: 10px;
+            border-radius: 20px;
+        }
+
+        button {
+            color: black;
+            border-color: red;
+            background-color: white;
+            text-shadow: 1px 1px 2px greenyellow, 0 0 1em blue, 0 0 0.2em blue;
+            border-radius: 5px;
+        }
+
+        input {
+            text-shadow: 1px 1px 2px yellow, 0 0 1em blue, 0 0 0.5em blue;
+            color: wheat;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objects Find</title>
+</head>
+
+<body>
+    <!-- Carete object and find the value of an object in an Array -->
+    <h4>Find The Value Of Object in Array:</h4>
+    <input type="text" id="get_input_value">
+    <button onclick="Find_obj('name')">Click_for_Name</button>
+    <button onclick="Find_obj('age')">Click_for_Age</button>
+    <button onclick="Find_obj('city')">Click_for_City</button><br><br>
+    <div id="result" class="rowo"></div>
+</body>
+<script>
+    var person = [
+        { name: 'usman', age: '20Years', city: 'lahore'},
+        { name: 'zohaib', age: '22Years', city: 'Kangan Pur'},
+        { name: 'shakeel', age: '20Years', city: 'lahore'},
+        { name: 'Waheed Bhai', age: '27Years', city: 'Islamabad'},
+        { name: 'Ikhlaq', age: '21Years', city: 'Faislabad' },
+        { name: 'Emaan', age: '18Years', city: 'Ravalpindi' },
+    ]
+    function Find_obj(type) {
+        var get_value = document.getElementById('get_input_value').value;
+        let find_value = null;
+        for(let i = 0; i<=person.length; i++){
+            if(type == "name"){
+            find_value = person.filter((a) => a.name == get_value);
+        }else if (type == "age"){
+         find_value = person.filter((a) => a.age == get_value);
+        }
+        else if (type== "city"){
+         find_value = person.filter((a) => a.city == get_value);
+        }
+    }
+    let output = ''
+    find_value.forEach(item => {
+        output +="<div class='col-md-3'> Name: " + item.name +"<br>" + " Age: " + item.age+ "<br> "+ " City: " + item.city +"</div><br>" ;
+    })
+    document.getElementById('result').innerHTML = output 
+
+
+        }
+   
+</script>
+</html>

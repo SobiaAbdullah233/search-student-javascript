@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        * {
+            background-color: black;
+            color: white;
+        }
+
+        button {
+            color: black;
+            border-color: red;
+            background-color: white;
+            text-shadow: 1px 1px 2px greenyellow, 0 0 1em blue, 0 0 0.2em blue;
+            border-radius: 5px;
+        }
+
+        input {
+            text-shadow: 1px 1px 2px yellow, 0 0 1em blue, 0 0 0.5em blue;
+            color: wheat;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>objects Find</title>
+</head>
+
+<body>
+    <!-- Carete object and find the value of an object in an Array -->
+    <h4>Find The Value Of Object in Array:</h4>
+    <input type="text" id="get_input_value">
+    <button onclick="Find_obj('name')">Click_for_Name</button>
+    <button onclick="Find_obj('age')">Click_for_Age</button>
+    <button onclick="Find_obj('city')">Click_for_City</button><br><br>
+    <div id="result"></div>
+</body>
+<script>
+    var person = [
+        { name: 'usman', age: '20Years', city: 'lahore'},
+        { name: 'zohaib', age: '22Years', city: 'Kangan Pur'},
+        { name: 'shakeel', age: '20Years', city: 'lahore'},
+        { name: 'Waheed Bhai', age: '27Years', city: 'Islamabad'},
+        { name: 'Ikhlaq', age: '21Years', city: 'Faislabad' },
+        { name: 'usman', age: '18Years', city: 'Ravalpindi' },
+    ]
+    function Find_obj(type) {
+        var get_value = document.getElementById('get_input_value').value;
+        let find_value = null;
+        for(let i = 0; i<=person.length; i++){
+            if(type == "name"){
+            find_value = person.find((a) => a.name == get_value);
+        }else if (type == "age"){
+         find_value = person.find((a) => a.age == get_value);
+        }
+        else if (type== "city"){
+         find_value = person.find((a) => a.city == get_value);
+        }
+    }
+    document.getElementById('result').innerHTML = !find_value ?  (get_value + ' does not exists in the array') : ("Name: " + find_value.name +"<br>" + " Age: " + find_value.age+ "<br> "+ " City: " + find_value.city +"<br>"+ ' exist in the array' ); 
+
+        }
+   
+</script>
+</html>
